@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -20,27 +20,29 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
   'prompt': 'select_account'
 });
 
 
-export const auth = getAuth();
+
+// Google Sign-in
+export const auth = getAuth(app);
 export async function signInWithGooglePopup() {
-  return await signInWithPopup(auth, provider)
+  return await signInWithPopup(auth, googleProvider)
 }
 
+// Firestore Sign Up
 export const db = getFirestore()
-export async function createUserDocumentFromAuth(authData) {
+export async function createUserDocumentFromAuth(authData, dName) { //catch 'displayName' param
   const userDocRef = doc(db, 'users', authData.uid)         //create document reference to point towards
   const userGetDoc = await getDoc(userDocRef)               //get the document using above reference
-  // console.log(userGetDoc); 
 
   if (!userGetDoc.exists()) {                                 //if doesn't exist, setDoc insert
     try {
       await setDoc(userDocRef, {
-        displayName: authData.displayName,
+        displayName: dName || authData.displayName,           //if 'null' use 'dName'
         email: authData.email,
         createdAt: new Date()
       })
@@ -52,4 +54,9 @@ export async function createUserDocumentFromAuth(authData) {
   else if (userGetDoc.exists()) {
     return userDocRef
   }
+}
+
+// Email-Password Sign-up
+export async function signUpWithEmailPassword(email, password) {
+  return await createUserWithEmailAndPassword(auth, email, password)
 }
