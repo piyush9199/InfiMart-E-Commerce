@@ -3,6 +3,8 @@ import { signUpWithEmailPassword } from "../../utils/firebase/firebase.utils"
 import { createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils"
 import { FormInput } from "../form-input/form-input.component"
 import './sign-up.styles.scss'
+import { Button } from "@mui/material"
+
 
 export function SignUpForm() {
     const [formFields, setFormFields] = useState({ displayName: '', email: '', password: '', confirmPassword: '' })
@@ -42,15 +44,15 @@ export function SignUpForm() {
         <div className="sign-up-container">
             <h2>Sign up using Email and Password</h2>
             <form onSubmit={handleSubmit}>
-                
+
                 <FormInput label="Display Name" type="text" name="displayName" onChange={handleChange} value={formFields.displayName} required />
-                
+
                 <FormInput label="Email" type="email" name="email" onChange={handleChange} value={formFields.email} required />
-                
+
                 <FormInput label="Password" type="password" name="password" onChange={handleChange} value={formFields.password} required />
-                
+
                 <FormInput label="Confirm Password" type="password" name="confirmPassword" onChange={handleChange} value={formFields.confirmPassword} required />
-                <button type="submit">Sign Up</button>
+                <Button variant="contained" className="custom-black-button" type="submit">Sign Up</Button>
             </form>
         </div>
     )

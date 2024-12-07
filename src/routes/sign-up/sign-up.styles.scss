@@ -3,3 +3,13 @@
     flex-direction: column;
     width: 380px;
 }
+
+.sign-up-container .custom-black-button {
+    background-color: black;
+    color: white;
+  
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }

@@ -1,0 +1,23 @@
+.buttons-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-container .custom-black-button {
+  background-color: black;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.buttons-container .custom-blue-button{
+  background-color: #4285f4;
+  border: 1px solid black;
+  &:hover{
+    background-color: #357ae8;
+    border: none
+  }
+}
