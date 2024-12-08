@@ -1,13 +1,16 @@
-import { useState } from "react"
-// import { signUpWithEmailPassword } from "../../utils/firebase/firebase.utils"
+import { useContext, useState } from "react"
 import { createUserDocumentFromAuth, signInWithGooglePopup, signInWithEmailPassword } from "../../utils/firebase/firebase.utils"
 import { FormInput } from "../form-input/form-input.component"
 import { Button } from "@mui/material"
 import './sign-in.styles.scss'
+import { UserContext } from "../../contexts/user.context"
 
 
 export function SignInForm() {
     const [formFields, setFormFields] = useState({ email: '', password: '' })
+
+    const {setCurrentUser} = useContext(UserContext)     //useContext(UserContext) returns an object { currentUser, setCurrentUser }
+                                                         //the braces extract only {setCurrentUser} by destructuring
 
     function resetFormFields() {
         setFormFields({ email: '', password: '' })
@@ -21,7 +24,7 @@ export function SignInForm() {
 
         try {
             const response = await signInWithEmailPassword(formFields.email, formFields.password)
-            console.log(response);
+            setCurrentUser(response.user)
             resetFormFields();
         }
         catch (error) {
