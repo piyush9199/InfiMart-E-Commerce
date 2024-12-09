@@ -9,6 +9,7 @@ import { Button } from "@mui/material"
 export function SignUpForm() {
     const [formFields, setFormFields] = useState({ displayName: '', email: '', password: '', confirmPassword: '' })
 
+    
     function resetFormFields() {
         setFormFields({ displayName: '', email: '', password: '', confirmPassword: '' })
     }

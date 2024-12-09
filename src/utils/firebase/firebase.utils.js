@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -36,7 +36,7 @@ export async function signInWithGooglePopup() {
 // Firestore Sign Up
 export const db = getFirestore()
 export async function createUserDocumentFromAuth(authData, dName) { //catch 'displayName' param
-  const userDocRef = doc(db, 'users', authData.uid)         //create document reference to point towards
+  const userDocRef = doc(db, 'users', authData.uid)         //create document reference
   const userGetDoc = await getDoc(userDocRef)               //get the document using above reference
 
   if (!userGetDoc.exists()) {                                 //if doesn't exist, setDoc insert
@@ -66,6 +66,12 @@ export async function signInWithEmailPassword(email, password) {
   return await signInWithEmailAndPassword(auth, email, password)
 }
 
+//Signout
 export async function signOutUser() {
   return await signOut(auth)
+}
+
+//Auth state observer
+export function onAuthStateChangedListener(callback) {
+  return onAuthStateChanged(auth, callback)  //callback is a function
 }
