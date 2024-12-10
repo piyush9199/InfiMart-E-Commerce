@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from './App';
 import { UserProvider } from './contexts/user.context'
+import { ProductsProvider } from './contexts/products.context';
 
 import './index.scss';
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
       <UserProvider>
-          <App />
+          <ProductsProvider>
+            <App />
+          </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

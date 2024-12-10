@@ -1,6 +1,5 @@
-import { createUserDocumentFromAuth, signInWithGooglePopup } from '../../utils/firebase/firebase.utils'
-import { SignUpForm } from '../sign-up/sign-up.component'
-import { SignInForm } from '../sign-in/sign-in.component'
+import { SignUpForm } from '../../components/sign-up/sign-up.component'
+import { SignInForm } from '../../components/sign-in/sign-in.component'
 import './authentication.styles.scss'
 
 export function Authentication() {
