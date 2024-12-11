@@ -7,16 +7,19 @@ import { UserProvider } from './contexts/user.context'
 import { ProductsProvider } from './contexts/products.context';
 
 import './index.scss';
+import { CartProvider } from './contexts/cart.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <UserProvider>
-          <ProductsProvider>
+        <ProductsProvider>
+          <CartProvider>
             <App />
-          </ProductsProvider>
+          </CartProvider>
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
