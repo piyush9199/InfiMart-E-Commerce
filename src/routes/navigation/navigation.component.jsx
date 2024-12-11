@@ -6,6 +6,8 @@ import { useContext } from "react"
 import { UserContext } from "../../contexts/user.context"
 
 import { signOutUser } from "../../utils/firebase/firebase.utils" 
+import { CartIcon } from "../../components/cart-icon/cart-icon.component"
+import { CartDropdown } from "../../components/cart-dropdown/cart-dropdown.component"
 
 export function Navigation() {
   const {currentUser} = useContext(UserContext)                         //currentUser data now accessible here
@@ -23,7 +25,9 @@ export function Navigation() {
           {currentUser ? ( <span onClick={signOutUser} className="nav-link">SIGN OUT</span> ) : (<Link to="/auth" className="nav-link" >SIGN IN</Link>)}
 
         </div>
+        <CartIcon />
       </div>
+      <CartDropdown />
       <Outlet />    {/*Parent route must use "Outlet" */}
     </div>
   )
