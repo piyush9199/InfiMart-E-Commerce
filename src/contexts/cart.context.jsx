@@ -23,6 +23,9 @@ function removeCartItem(cartItems, productToRemove) {
     return cartItems.map((cartItem) => cartItem.id === productToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
 }
 
+function clearCartItem(cartItems, productToClear){
+    return cartItems.filter((cartItem)=>cartItem.id !== productToClear.id)
+}
 
 export const CartContext = createContext(null)
 
@@ -30,6 +33,7 @@ export function CartProvider({ children }) {
     const [isCartOpen, setIsCartOpen] = useState(false)
     const [cartItems, setCartItems] = useState([])
     const [cartCount, setCartCount] = useState(0)
+    const [cartPrice, setCartPrice] = useState(0)
 
     function addItemToCart(productToAdd) {
         setCartItems(addCartItem(cartItems, productToAdd))
@@ -39,15 +43,25 @@ export function CartProvider({ children }) {
         setCartItems(removeCartItem(cartItems, productToRemove))
     }
 
+    function clearItemFromCart(productToClear) {
+        setCartItems(clearCartItem(cartItems, productToClear))
+    }
+
+
 
     useEffect(() => {
         const totalCartQuantity = cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)     //total cart quantity changes 
         setCartCount(totalCartQuantity)
+    }, [cartItems])    
+                                                                                      //when cartItems change
+    useEffect(() => {
+        const totalCartPrice = cartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0)     //total cart quantity changes 
+        setCartPrice(totalCartPrice)
     }, [cartItems])                                                                                      //when cartItems change
 
 
     return (
-        <CartContext.Provider value={{ isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount, removeItemFromCart }} >
+        <CartContext.Provider value={{ isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount, removeItemFromCart, clearItemFromCart, cartPrice }} >
             {children}
         </CartContext.Provider>
     )
