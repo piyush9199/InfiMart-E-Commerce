@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc, collection, writeBatch, query, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
 
@@ -34,10 +34,10 @@ export async function signInWithGooglePopup() {
 }
 
 // Firestore Sign Up
-export const db = getFirestore()
+export const db = getFirestore();
 export async function createUserDocumentFromAuth(authData, dName) { //catch 'displayName' param
-  const userDocRef = doc(db, 'users', authData.uid)         //create document reference
-  const userGetDoc = await getDoc(userDocRef)               //get the document using above reference
+  const userDocRef = doc(db, 'users', authData.uid);         //create document reference
+  const userGetDoc = await getDoc(userDocRef);               //get the document using above reference
 
   if (!userGetDoc.exists()) {                                 //if doesn't exist, setDoc insert
     try {
@@ -74,4 +74,33 @@ export async function signOutUser() {
 //Auth state observer
 export function onAuthStateChangedListener(callback) {
   return onAuthStateChanged(auth, callback)  //callback is a function
+}
+
+//Creating collection
+export async function addCollectionAndDocuments(collectionKey, objectsToAdd){
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object)=>{
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  })
+
+  await batch.commit()
+}
+
+//get collection from firebase
+export async function getCategoriesAndDocuments(){
+  const collectionRef = collection(db, 'categories');
+
+  const q = query(collectionRef);
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) =>{
+    const key = docSnapshot.data().title.toLowerCase();
+    const value = docSnapshot.data().items;
+    accumulator[key] = value;         //converting array to key value pair
+    return accumulator;               //key=title, value=items
+  }, {});                             //initial value= empty{}
+
+  return categoryMap;
 }
