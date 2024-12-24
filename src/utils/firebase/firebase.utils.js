@@ -98,8 +98,8 @@ export async function getCategoriesAndDocuments(){
   const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) =>{
     const key = docSnapshot.data().title.toLowerCase();
     const value = docSnapshot.data().items;
-    accumulator[key] = value;         //converting array to key value pair
-    return accumulator;               //key=title, value=items
+    accumulator[key] = value;         //converting array to object key value pair //key=title, value=items
+    return accumulator;               
   }, {});                             //initial value= empty{}
 
   return categoryMap;
