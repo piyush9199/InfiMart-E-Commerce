@@ -7,7 +7,7 @@ import './sign-in.styles.scss'
 
 export function SignInForm() {
     const [formFields, setFormFields] = useState({ email: '', password: '' })
-    
+
 
     function resetFormFields() {
         setFormFields({ email: '', password: '' })
@@ -24,11 +24,11 @@ export function SignInForm() {
             resetFormFields();
         }
         catch (error) {
-            if(error.code === 'auth/invalid-credential' ){
+            if (error.code === 'auth/invalid-credential') {
                 alert('Wrong Credentials')
             }
             console.log('Cannot sign in', error);
-            
+
         }
     }
 
@@ -50,8 +50,8 @@ export function SignInForm() {
                 <FormInput label="Password" type="password" name="password" onChange={handleChange} value={formFields.password} required />
 
                 <div className="buttons-container">
-                    <div><Button variant="contained" className="custom-black-button" type="submit">Sign In</Button></div>
-                    <div><Button variant="contained" className="custom-blue-button" type="button" onClick={logGoogleUser} >Google sign in</Button></div>
+                    <div><Button variant="contained" className="button black" type="submit">Sign In</Button></div>
+                    <div><Button variant="contained" className="button blue" type="button" onClick={logGoogleUser} >Google sign in</Button></div>
                 </div>
             </form>
         </div>

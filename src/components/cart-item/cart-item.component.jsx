@@ -2,8 +2,8 @@ import './cart-item.styles.scss'
 
 
 
-export function CartItem({cartItem}){
-    
+export function CartItem({ cartItem }) {
+
 
     return (
         <div className='cart-item-container'>

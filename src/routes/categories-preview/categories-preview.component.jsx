@@ -11,7 +11,7 @@ export function CategoriesPreview() {
             {
                 Object.keys(categoriesMap).map((title) => {
                     const products = categoriesMap[title];      //not categoriesMap.title cz title is a variable, not a literal key
-                                                               //Bracket notation categoriesMap[title] dynamically accesses the value
+                                                                //Bracket notation categoriesMap[title] dynamically accesses the value
                     return (
                         <CategoryPreview key={title} title={title} products={products} />
                     )

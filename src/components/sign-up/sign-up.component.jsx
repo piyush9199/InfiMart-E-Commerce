@@ -9,7 +9,7 @@ import { Button } from "@mui/material"
 export function SignUpForm() {
     const [formFields, setFormFields] = useState({ displayName: '', email: '', password: '', confirmPassword: '' })
 
-    
+
     function resetFormFields() {
         setFormFields({ displayName: '', email: '', password: '', confirmPassword: '' })
     }
@@ -53,7 +53,7 @@ export function SignUpForm() {
                 <FormInput label="Password" type="password" name="password" onChange={handleChange} value={formFields.password} required />
 
                 <FormInput label="Confirm Password" type="password" name="confirmPassword" onChange={handleChange} value={formFields.confirmPassword} required />
-                <Button variant="contained" className="custom-black-button" type="submit">Sign Up</Button>
+                <Button variant="contained" className="button black" type="submit">Sign Up</Button>
             </form>
         </div>
     )

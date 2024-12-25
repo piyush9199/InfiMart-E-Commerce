@@ -4,7 +4,7 @@ import './directory-item.styles.scss'
 
 export function DirectoryItem({ category }) {               //{category} instead of category= destructuring
     const navigate = useNavigate()
-    function navigateHandler(){
+    function navigateHandler() {
         navigate(`/shop/${category.title.toLowerCase()}`)
     }
     return (

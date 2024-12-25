@@ -25,14 +25,14 @@ export function Checkout() {
                     <span>Remove</span>
                 </div>
             </div>
-                {
-                    cartItems.map((cartItem) => {
-                        return (
-                            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                        )
-                    })
-                }
-                <span className='total'>Total: {cartPrice}</span>
+            {
+                cartItems.map((cartItem) => {
+                    return (
+                        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                    )
+                })
+            }
+            <span className='total'>Total: {cartPrice}</span>
         </div>
     )
 }

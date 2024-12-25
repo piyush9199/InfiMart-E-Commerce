@@ -16,15 +16,15 @@ function removeCartItem(cartItems, productToRemove) {
     //  find if item already exists using id
     let existingCartItem = cartItems.find((cartItem) => cartItem.id === productToRemove.id);
     // if quantity=1 remove the item from cart
-    if(existingCartItem.quantity === 1){
-        return cartItems.filter((cartItem)=>cartItem.id !== productToRemove.id)
+    if (existingCartItem.quantity === 1) {
+        return cartItems.filter((cartItem) => cartItem.id !== productToRemove.id)
     }
     //else return with quantity-1
     return cartItems.map((cartItem) => cartItem.id === productToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem)
 }
 
-function clearCartItem(cartItems, productToClear){
-    return cartItems.filter((cartItem)=>cartItem.id !== productToClear.id)
+function clearCartItem(cartItems, productToClear) {
+    return cartItems.filter((cartItem) => cartItem.id !== productToClear.id)
 }
 
 export const CartContext = createContext(null)
@@ -52,8 +52,8 @@ export function CartProvider({ children }) {
     useEffect(() => {
         const totalCartQuantity = cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)     //total cart quantity changes 
         setCartCount(totalCartQuantity)
-    }, [cartItems])    
-                                                                                      //when cartItems change
+    }, [cartItems])
+    //when cartItems change
     useEffect(() => {
         const totalCartPrice = cartItems.reduce((total, cartItem) => total + cartItem.quantity * cartItem.price, 0)     //total cart quantity changes 
         setCartPrice(totalCartPrice)

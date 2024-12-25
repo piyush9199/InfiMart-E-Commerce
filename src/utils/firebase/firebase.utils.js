@@ -77,11 +77,11 @@ export function onAuthStateChangedListener(callback) {
 }
 
 //Creating collection
-export async function addCollectionAndDocuments(collectionKey, objectsToAdd){
+export async function addCollectionAndDocuments(collectionKey, objectsToAdd) {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
-  objectsToAdd.forEach((object)=>{
+  objectsToAdd.forEach((object) => {
     const docRef = doc(collectionRef, object.title.toLowerCase());
     batch.set(docRef, object);
   })
@@ -90,16 +90,16 @@ export async function addCollectionAndDocuments(collectionKey, objectsToAdd){
 }
 
 //get collection from firebase
-export async function getCategoriesAndDocuments(){
+export async function getCategoriesAndDocuments() {
   const collectionRef = collection(db, 'categories');
 
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) =>{
+  const categoryMap = querySnapshot.docs.reduce((accumulator, docSnapshot) => {
     const key = docSnapshot.data().title.toLowerCase();
     const value = docSnapshot.data().items;
     accumulator[key] = value;         //converting array to object key value pair //key=title, value=items
-    return accumulator;               
+    return accumulator;
   }, {});                             //initial value= empty{}
 
   return categoryMap;

@@ -11,8 +11,8 @@ export function UserProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChangedListener((user)=>{
-            if(user){
+        const unsubscribe = onAuthStateChangedListener((user) => {
+            if (user) {
                 createUserDocumentFromAuth(user)  //new google users also
             }
             setCurrentUser(user)

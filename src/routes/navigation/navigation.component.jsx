@@ -29,7 +29,7 @@ export function Navigation() {
         <CartIcon />
       </div>
       {isCartOpen && <CartDropdown />}
-      
+
       <Outlet />                            {/*Parent route must use "Outlet" */}
     </div>
   )
