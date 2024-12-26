@@ -27,13 +27,22 @@ function clearCartItem(cartItems, productToClear) {
     return cartItems.filter((cartItem) => cartItem.id !== productToClear.id)
 }
 
-export const CartContext = createContext(null)
+export const CartContext = createContext({
+    isCartOpen: false,
+    setIsCartOpen: () => {},
+    cartItems: [],
+    cartCount: 0,
+    cartPrice: 0,
+    addItemToCart: () => {},
+    removeItemFromCart: () => {},
+    clearItemFromCart: () => {},
+});
 
 export function CartProvider({ children }) {
-    const [isCartOpen, setIsCartOpen] = useState(false)
-    const [cartItems, setCartItems] = useState([])
-    const [cartCount, setCartCount] = useState(0)
-    const [cartPrice, setCartPrice] = useState(0)
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [cartItems, setCartItems] = useState([]);
+    const [cartCount, setCartCount] = useState(0);
+    const [cartPrice, setCartPrice] = useState(0);
 
     function addItemToCart(productToAdd) {
         setCartItems(addCartItem(cartItems, productToAdd))

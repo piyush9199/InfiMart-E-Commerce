@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import { Link } from "react-router-dom"
-import { ReactComponent as Logo } from '../../assets/logo/store.svg'
+import { ReactComponent as Logo } from '../../assets/logo/infiMart-icon.svg'
 import './navigation.styles.scss'
 import { useContext } from "react"
 import { UserContext } from "../../contexts/user.context"
