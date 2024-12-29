@@ -4,6 +4,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .payment-button {
+        margin-left: auto;
+        margin-top: 30px;
+    }
 }
 
 
@@ -12,7 +17,3 @@
     min-width: 500px;
 }
 
-.payment-button {
-    margin-left: auto;
-    margin-top: 30px;
-}

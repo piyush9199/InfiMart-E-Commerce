@@ -42,7 +42,7 @@ export async function createUserDocumentFromAuth(authData, dName) { //catch 'dis
   if (!userGetDoc.exists()) {                                 //if doesn't exist, setDoc insert
     try {
       await setDoc(userDocRef, {
-        displayName: dName || authData.displayName,           //if 'null' use 'dName'
+        displayName: dName || authData.displayName,           //if not 'null' use 'dName'
         email: authData.email,
         createdAt: new Date()
       })
