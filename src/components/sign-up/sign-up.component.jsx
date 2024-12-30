@@ -36,7 +36,6 @@ export function SignUpForm() {
             } else {
                 console.log("error creating user", error);
             }
-
         }
     }
 
@@ -53,6 +52,7 @@ export function SignUpForm() {
                 <FormInput label="Password" type="password" name="password" onChange={handleChange} value={formFields.password} required />
 
                 <FormInput label="Confirm Password" type="password" name="confirmPassword" onChange={handleChange} value={formFields.confirmPassword} required />
+
                 <Button variant="contained" className="button black" type="submit">Sign Up</Button>
             </form>
         </div>

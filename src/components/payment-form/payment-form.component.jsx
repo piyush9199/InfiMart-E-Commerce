@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/user.context';
 export function PaymentForm() {
     const {cartPrice} = useContext(CartContext);
     const {currentUser} = useContext(UserContext);
-    console.log(currentUser);
+    // console.log(currentUser);
     
 
     const stripe = useStripe();

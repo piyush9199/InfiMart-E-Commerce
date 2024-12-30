@@ -36,9 +36,10 @@ export async function signInWithGooglePopup() {
 // Firestore Sign Up
 export const db = getFirestore();
 export async function createUserDocumentFromAuth(authData, dName) { //catch 'displayName' param
+  
   const userDocRef = doc(db, 'users', authData.uid);         //create document reference
   const userGetDoc = await getDoc(userDocRef);               //get the document using above reference
-
+  
   if (!userGetDoc.exists()) {                                 //if doesn't exist, setDoc insert
     try {
       await setDoc(userDocRef, {
@@ -51,8 +52,11 @@ export async function createUserDocumentFromAuth(authData, dName) { //catch 'dis
       console.log("User can't be created", error.message);
     }
   }
-  else if (userGetDoc.exists()) {
-    return userDocRef
+  else if (userGetDoc.exists()) {    
+    return {
+      userDocRef,
+      displayName: userGetDoc.data().displayName
+    }
   }
 }
 
@@ -72,11 +76,11 @@ export async function signOutUser() {
 }
 
 //Auth state observer
-export function onAuthStateChangedListener(callback) {
+export function onAuthStateChangedListener(callback) {  
   return onAuthStateChanged(auth, callback)  //callback is a function
 }
 
-//Creating collection
+//Creating collection and pushing json to database
 export async function addCollectionAndDocuments(collectionKey, objectsToAdd) {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -100,7 +104,7 @@ export async function getCategoriesAndDocuments() {
     const value = docSnapshot.data().items;
     accumulator[key] = value;         //converting array to object key value pair //key=title, value=items
     return accumulator;
-  }, {});                             //initial value= empty{}
+  }, {});                             //initial value= empty obj{}
 
   return categoryMap;
 }
