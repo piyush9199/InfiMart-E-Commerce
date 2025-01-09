@@ -33,7 +33,7 @@ export function PaymentForm() {
                 payment_method: {
                     card: elements.getElement(CardElement),
                     billing_details: {
-                        name: currentUser ? currentUser.displayName : 'Anonymous'
+                        name: currentUser ? currentUser.email : 'Anonymous'
                     }
                 }
             });

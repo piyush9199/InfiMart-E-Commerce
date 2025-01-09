@@ -36,14 +36,15 @@ export function UserProvider({ children }) {
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener(async (user) => {
             if (user) {
-               const userDoc = await createUserDocumentFromAuth(user)  //new google users also                
-               setCurrentUser(userDoc)            }
+               await createUserDocumentFromAuth(user)  //new google users also                
+            }
+            setCurrentUser(user)           
         })
         
         return unsubscribe;         //unmount to stop listening and avoid memory leaks
     }, [])
     
-    // console.log(state.currentUser);
+    console.log(state.currentUser);
     
     return (
         <UserContext.Provider value={{ currentUser: state.currentUser, setCurrentUser }}>
