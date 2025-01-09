@@ -53,6 +53,7 @@ export function SignInForm() {
                     <div><Button variant="contained" className="button black" type="submit">Sign In</Button></div>
                     <div><Button variant="contained" className="button blue" type="button" onClick={logGoogleUser} >Google sign in</Button></div>
                 </div>
+                <p className="sample-email-password">Email: guestuser@hotmail.com & Password: guest@1234</p>
             </form>
         </div>
     )
