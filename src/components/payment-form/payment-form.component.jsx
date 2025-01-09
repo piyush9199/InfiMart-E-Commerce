@@ -41,7 +41,9 @@ export function PaymentForm() {
                 alert(paymentResult.error);
             } else {
                 if(paymentResult.paymentIntent.status === 'succeeded'){
+                    
                     alert('Payment successful')
+                    alert(`please note your transaction id ${paymentResult.paymentIntent.client_secret}`)
                 }
             }
     }
@@ -50,6 +52,7 @@ export function PaymentForm() {
         <div className='payment-form-container' >
             <form className='form-container' onSubmit={paymentHandler}>
                 <CardElement />
+                <p className='sample-card-details'>Use card '4242 4242 4242 4242' with any future date, cvc, zip</p>
                 <Button type='submit' variant='contained' className='button white payment-button'>Pay now</Button>
             </form>
         </div>
