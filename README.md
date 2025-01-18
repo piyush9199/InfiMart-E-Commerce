@@ -9,6 +9,7 @@
     Authentication: Firebase Authentication
     Realtime Database: Firestore
     Deployment: Netlify
+    Package Manager: npm
 # Key Features
     Category-wise product overview
     User authentication
