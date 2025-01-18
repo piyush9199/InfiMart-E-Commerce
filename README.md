@@ -33,8 +33,8 @@ npm install
 ```
 
 ## Run development server
-netlify dev - payment working
-npm start - payment doesn't work
+```netlify dev``` - payment working
+```npm start``` - payment doesn't work
 
 ## Set up environment variables
 .env
