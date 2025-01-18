@@ -28,7 +28,9 @@
 git clone https://github.com/piyush9199/eshopper-app.git
 
 ## Install dependencies
+```
 npm install
+```
 
 ## Run development server
 netlify dev - payment working
