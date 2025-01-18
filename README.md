@@ -25,7 +25,9 @@
 # Installation/Setup Instructions
 
 ## Clone the repository
+```
 git clone https://github.com/piyush9199/eshopper-app.git
+```
 
 ## Install dependencies
 ```
@@ -33,8 +35,8 @@ npm install
 ```
 
 ## Run development server
-```netlify dev``` - payment working
-```npm start``` - payment doesn't work
+```netlify dev``` - payment working  
+```npm start``` - payment doesn't work  
 
 ## Set up environment variables
 .env
