@@ -24,17 +24,16 @@
     Implemented real-time database interactions with Firebase
 # Installation/Setup Instructions
 
-bash
-# Clone the repository
+## Clone the repository
 git clone https://github.com/piyush9199/eshopper-app.git
 
-# Install dependencies
+## Install dependencies
 npm install
 
-# Run development server
+## Run development server
 npm start
 
-# Set up environment variables
+## Set up environment variables
 .env
 
 
