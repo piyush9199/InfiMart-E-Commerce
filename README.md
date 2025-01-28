@@ -1,4 +1,4 @@
-# Project Title
+# InfiMart Shopper
  A fully-featured e-commerce web application built with React, Context API, and Firebase, offering seamless shopping experiences with secure Stripe payment integration.
 # Technologies Used
     Frontend: React.js
