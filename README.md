@@ -1,8 +1,8 @@
 # Project Title
- A fully-featured e-commerce web application built with React, Context API, Redux Toolkit, and Firebase, offering seamless shopping experiences with secure Stripe payment integration.
+ A fully-featured e-commerce web application built with React, Context API, and Firebase, offering seamless shopping experiences with secure Stripe payment integration.
 # Technologies Used
     Frontend: React.js
-    State Management: Context API+Reducer, Redux Toolkit
+    State Management: Context API + useReducer, 
     Backend: Firebase
     Payment Gateway: Stripe
     Styling: Sass/SCSS, Material-UI
@@ -20,7 +20,7 @@
 # Project Highlights
     Implemented secure user authentication using Firebase
     Integrated Stripe for seamless payment processing
-    Utilized Redux Toolkit for efficient state management
+    Utilized Context API with useReducer for efficient centralized state management
     Created responsive design
     Implemented real-time database interactions with Firebase
 # Installation/Setup Instructions
