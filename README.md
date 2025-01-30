@@ -11,12 +11,13 @@
     Deployment: Netlify
     Package Manager: npm
 # Key Features
-    Category-wise product overview
+    Category-wise product overview and Landing page
     User authentication
-    Signup, Sign-in using Google, Email-Password
+    Signup, Sign-in using both Google and Email-Password
     Real-time product browsing
     Dynamic shopping cart functionality(Add, remove, modify quantity)
-    Secure card payment processing
+    Added items into Cart- Total quantity and amount realtime modification
+    Secure card payment processing with STRIPE API
 # Project Highlights
     Implemented secure user authentication using Firebase
     Integrated Stripe for seamless payment processing
