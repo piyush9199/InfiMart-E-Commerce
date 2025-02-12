@@ -6,7 +6,6 @@ import { PaymentForm } from '../../components/payment-form/payment-form.componen
 
 export function Checkout() {
     const { cartItems, cartPrice } = useContext(CartContext);
-    // const cartTotalPrice = useSelector(selectCartTotal);
 
     return (
         <div className='checkout-page'>
