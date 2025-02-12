@@ -37,7 +37,10 @@ export function Checkout() {
                 <span className='total'>Total: {cartPrice}</span>
             </div>
             <div className='payment-container'>
-                <PaymentForm />
+                {
+                    cartPrice > 0 ? <PaymentForm /> : null
+                }
+                
             </div>
         </div>
     )
