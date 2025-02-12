@@ -5,36 +5,41 @@ import { CheckoutItem } from '../../components/checkout-item/checkout-item.compo
 import { PaymentForm } from '../../components/payment-form/payment-form.component'
 
 export function Checkout() {
-    const { cartItems, cartPrice } = useContext(CartContext)
+    const { cartItems, cartPrice } = useContext(CartContext);
+    // const cartTotalPrice = useSelector(selectCartTotal);
 
     return (
-        <div className='checkout-container'>
-            <div className='checkout-header'>
-                <div className='header-block'>
-                    <span>Product</span>
+        <div className='checkout-page'>
+            <div className='checkout-container'>
+                <div className='checkout-header'>
+                    <div className='header-block'>
+                        <span>Product</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Description</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Quantity</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Price</span>
+                    </div>
+                    <div className='header-block'>
+                        <span>Remove</span>
+                    </div>
                 </div>
-                <div className='header-block'>
-                    <span>Description</span>
-                </div>
-                <div className='header-block'>
-                    <span>Quantity</span>
-                </div>
-                <div className='header-block'>
-                    <span>Price</span>
-                </div>
-                <div className='header-block'>
-                    <span>Remove</span>
-                </div>
+                {
+                    cartItems.map((cartItem) => {
+                        return (
+                            <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+                        )
+                    })
+                }
+                <span className='total'>Total: {cartPrice}</span>
             </div>
-            {
-                cartItems.map((cartItem) => {
-                    return (
-                        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-                    )
-                })
-            }
-            <span className='total'>Total: {cartPrice}</span>
-            <PaymentForm />
+            <div className='payment-container'>
+                <PaymentForm />
+            </div>
         </div>
     )
 }

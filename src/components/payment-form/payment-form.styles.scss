@@ -1,9 +1,31 @@
+// .payment-form-container {
+//     height: 300px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+
+//     .payment-button {
+//         margin-left: auto;
+//         margin-top: 30px;
+//     }
+// }
+
+
+// .form-container {
+//     height: 100px;
+//     min-width: 500px;
+// }
+
+// .sample-card-details{
+//     color: red;
+//     font-style: italic;
+//     font-weight:bold;
+// }
 .payment-form-container {
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 10%;
+    position: sticky;
+    top: 40px;
 
     .payment-button {
         margin-left: auto;
@@ -11,10 +33,8 @@
     }
 }
 
-
-.form-container {
-    height: 100px;
-    min-width: 500px;
+.card-element-container{
+    margin-top: 40px;
 }
 
 .sample-card-details{
