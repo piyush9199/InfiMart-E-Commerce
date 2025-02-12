@@ -22,5 +22,13 @@
       padding: 10px 15px;
       cursor: pointer;
     }
+
+    .nav-link-source{
+      color: red;
+      @keyframes blink {
+        50% {opacity: 0}
+      }
+      animation: blink 1.3s infinite;
+    }
   }
 }

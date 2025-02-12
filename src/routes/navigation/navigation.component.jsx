@@ -23,6 +23,7 @@ export function Navigation() {
 
         <div className="nav-links-container">
           <Link to="/shop" className="nav-link" >SHOP</Link>
+          <Link to="/source-code" className="nav-link nav-link-source" >SOURCE CODE</Link>
           {currentUser ? (<span onClick={signOutUser} className="nav-link">SIGN OUT</span>) : (<Link to="/auth" className="nav-link" >SIGN IN</Link>)}
         </div>
 
