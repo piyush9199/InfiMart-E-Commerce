@@ -1,25 +1,27 @@
-# Project Title
- A full-featured e-commerce web application built with React, Context API, Redux Toolkit, and Firebase, offering seamless shopping experiences with secure Stripe payment integration.
+# InfiMart Shopper
+ A fully-featured e-commerce web application built with React, Context API, and Firebase, offering seamless shopping experiences with secure Stripe payment integration.
 # Technologies Used
     Frontend: React.js
-    State Management: Context API+Reducer, Redux Toolkit
+    State Management: Context API + useReducer, 
     Backend: Firebase
     Payment Gateway: Stripe
     Styling: Sass/SCSS, Material-UI
     Authentication: Firebase Authentication
     Realtime Database: Firestore
     Deployment: Netlify
+    Package Manager: npm
 # Key Features
-    Category-wise product overview
+    Category-wise product overview and Landing page
     User authentication
-    Signup, Sign-in using Google, Email-Password
+    Signup, Sign-in using both Google and Email-Password
     Real-time product browsing
     Dynamic shopping cart functionality(Add, remove, modify quantity)
-    Secure card payment processing
+    Added items into Cart- Total quantity and amount realtime modification
+    Secure card payment processing with STRIPE API
 # Project Highlights
     Implemented secure user authentication using Firebase
     Integrated Stripe for seamless payment processing
-    Utilized Redux Toolkit for efficient state management
+    Utilized Context API with useReducer for efficient centralized state management
     Created responsive design
     Implemented real-time database interactions with Firebase
 # Installation/Setup Instructions
