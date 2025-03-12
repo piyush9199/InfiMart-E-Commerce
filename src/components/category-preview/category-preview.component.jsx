@@ -7,7 +7,7 @@ export function CategoryPreview({ title, products }) {
 
     return (
         <div className="category-preview-container">
-            <h2>
+            <h2 className='title-container'>
                 <Link to={`/shop/${title}`} className="title">{title.toUpperCase()}</Link>
             </h2>
             <div className="preview">

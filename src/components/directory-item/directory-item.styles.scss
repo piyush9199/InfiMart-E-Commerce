@@ -13,12 +13,14 @@
     cursor: pointer;
 
     & .background-image {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      transform: scale(1.1) rotate(2deg);
+      transition: transform 0.6s ease-out;
     }
 
     & .body {
+      transform: translateY(-10px);
       opacity: 0.9;
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
     }
   }
 
